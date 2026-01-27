@@ -60,7 +60,7 @@ public class Homepage  {
              WebElement pizzacat=driver.findElement(By.xpath("//div[@id='categoryPizzas']"));
         js.executeScript("arguments[0].scrollIntoView(true); arguments[0].click();", pizzacat);
 
-        Thread.sleep(5000);
+
 
         driver.findElement(By.xpath("//div[@data-testid='AK_menu_screen_view_cart_btn']")).click();
 
