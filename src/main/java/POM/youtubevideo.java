@@ -42,7 +42,7 @@ public class youtubevideo {
 
             driver.findElement(By.xpath("//img[@src='https://s3.amazonaws.com/dev-t2s-public/static/9ff9b8514b9df9a685bb2582d72999e6/img/1719554418php5ThSrn.jpg']")).click();
 
-            //Thread.sleep(5000);
+            Thread.sleep(5000);
             driver.findElement(By.xpath("//*[@testID='AK_menu_screen_youtube_video_modal_close']")).click();
 
             System.out.println("✅ Test completed successfully");
