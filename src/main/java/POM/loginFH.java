@@ -39,7 +39,7 @@ public class loginFH {
         driver.findElement(By.xpath("//*[@id='home-findtakeaway']/span")).click();
         driver.findElement(By.xpath("(//*[normalize-space()='Accept'])[3]")).click();
 
-         //Thread.sleep(5000);
+         Thread.sleep(5000);
 
         driver.findElement(By.xpath("//a[@id='More']")).click();
 
@@ -71,7 +71,7 @@ public class loginFH {
         wait.until(driver1 ->
                 driver1.findElement(By.id("agree_button")).isEnabled()
         );
-
+Thread.sleep(5000);
 // Final click
         WebElement agreeBtn = driver.findElement(By.id("agree_button"));
         js.executeScript("arguments[0].click();", agreeBtn);
