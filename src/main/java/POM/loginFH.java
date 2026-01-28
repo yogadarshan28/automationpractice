@@ -39,7 +39,7 @@ public class loginFH {
         driver.findElement(By.xpath("//*[@id='home-findtakeaway']/span")).click();
         driver.findElement(By.xpath("(//*[normalize-space()='Accept'])[3]")).click();
 
-         Thread.sleep(5000);
+         //Thread.sleep(5000);
 
         driver.findElement(By.xpath("//a[@id='More']")).click();
 
