@@ -10,13 +10,14 @@ repositories {
 }
 
 dependencies {
-    // TestNG for testing
+    // TestNG
     testImplementation("org.testng:testng:7.10.2")
 
-    // Selenium Java
-    implementation("org.seleniumhq.selenium:selenium-java:4.20.0")
+    // ✅ Compatible versions
+    implementation("org.seleniumhq.selenium:selenium-java:4.16.1")
+    testImplementation("io.appium:java-client:9.1.0")
 
-    // Apache POI (both core and OOXML for Excel support)
+    // Apache POI
     implementation("org.apache.poi:poi:5.2.5")
     implementation("org.apache.poi:poi-ooxml:5.2.5")
 }
