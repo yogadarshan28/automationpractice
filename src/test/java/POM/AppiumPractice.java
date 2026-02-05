@@ -2,31 +2,34 @@ package POM;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+
 import java.net.MalformedURLException;
-import java.net.URL;import java.time.Duration;
+import java.net.URL;
+import java.time.Duration;
 
 public class AppiumPractice {
 
-AndroidDriver driver;
-    public AppiumPractice() throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException {
 
         UiAutomator2Options options = new UiAutomator2Options();
+
         options.setPlatformName("Android");
         options.setAutomationName("UiAutomator2");
-        options.setDeviceName("Android Emulator");
-        options.setUdid("emulator-5554");
-        options.setAppPackage("com.t2s.foodhub");
-        options.setAppActivity("com.t2s.foodhub");
 
-        driver = new AndroidDriver(
-                new URL("http://127.0.0.1:4723/"),
+        options.setDeviceName("emulator-5554");
+        options.setUdid("emulator-5554");
+
+        // IMPORTANT: no space at the end
+        options.setApp("/Users/yogadarshan/Downloads/1769965853303_foodhub_v2.apk");
+
+        options.setAutoGrantPermissions(true);
+        options.setNewCommandTimeout(Duration.ofSeconds(300));
+
+        AndroidDriver driver = new AndroidDriver(
+                new URL("http://127.0.0.1:4723/wd/hub"),
                 options
         );
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
 
-    public static void main(String[] args) throws MalformedURLException {
-        // Trigger the constructor → launches the app
-        new AppiumPractice();
+        System.out.println("✅ App launched successfully!");
     }
-    }
+}
