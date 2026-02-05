@@ -1,7 +1,10 @@
 package POM;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -9,7 +12,7 @@ import java.time.Duration;
 
 public class AppiumPractice {
 
-    public static void main(String[] args) throws MalformedURLException {
+    public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
         UiAutomator2Options options = new UiAutomator2Options();
 
@@ -31,5 +34,52 @@ public class AppiumPractice {
         );
 
         System.out.println("✅ App launched successfully!");
+
+        Thread.sleep(5000);
+
+        driver.findElement(AppiumBy.accessibilityId("AK_location_request_screen_enter_manually_text")).click();
+
+        Thread.sleep(5000);
+
+        driver.findElement(AppiumBy.accessibilityId("AK_search_places_screen_address_search")).sendKeys("AA11AA");
+
+        Thread.sleep(5000);
+
+        driver.findElement(AppiumBy.accessibilityId("AK_search_places_screen_places_item_line_one_0")).click();
+
+        Thread.sleep(5000);
+
+        /*try {
+            driver.findElement(AppiumBy.id("com.android.permissioncontroller:id/permission_allow_button")).click();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }*/
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        Thread.sleep(5000);
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.accessibilityId("AK_takeaway_list_screen_search_icon")
+        )).click();
+
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                AppiumBy.accessibilityId("AK_takeaway_list_screen_search_input")
+        )).sendKeys("food");
+
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//*[contains(@content-desc,'takeaway_image')]")
+        )).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.xpath("//*[contains(@content-desc,'takeaway_image')]")
+        )).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.accessibilityId("AK_menu_screen_collection_toggle_button")
+        )).click();
     }
 }
