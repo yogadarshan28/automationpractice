@@ -81,5 +81,45 @@ public class AppiumPractice {
         wait.until(ExpectedConditions.elementToBeClickable(
                 AppiumBy.accessibilityId("AK_menu_screen_collection_toggle_button")
         )).click();
+
+        wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        AppiumBy.xpath(
+                                "//com.horcrux.svg.SvgView[@content-desc=\"AK_menu_screen_info_icon_unfilled\"]/com.horcrux.svg.GroupView/com.horcrux.svg.PathView"
+                        )
+                )
+        ).click();
+
+        String feeDescription= wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        AppiumBy.accessibilityId(
+                                "AK_menu_screen_fee_description_This fee is charged for delivering your order and the amount may vary based on distance, order value, or delivery conditions. This fee is charged by the store and not by Foodhub."
+                        )
+                )
+        ).getText();
+
+        System.out.println(feeDescription);
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.accessibilityId("AK_undefined_undefined")
+        )).click();
+
+        wait.until(ExpectedConditions.elementToBeClickable(
+                AppiumBy.accessibilityId("Test-Foodhub's Test's TA's")
+        )).click();
+
+        Thread.sleep(5000);
+
+       /* wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        AppiumBy.xpath(
+                                "//com.horcrux.svg.SvgView[@content-desc="AK_menu_screen_youtube_video_modal_close"]/com.horcrux.svg.GroupView/com.horcrux.svg.PathView")
+                )
+        ).click();*/
+
+
+
+
+
     }
 }
